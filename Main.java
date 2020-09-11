@@ -21,10 +21,10 @@ public class Main implements Directions {
        TestMain test = new TestMain();
         test.setup();
         test.test1_faceEast();
-        test.test2_isLeftBlocked();
-        test.test3_findNextDirection();
-        test.test4_isWayBlocked();
-        test.test5_carpet();
+       // test.test2_isLeftBlocked();
+        //test.test3_findNextDirection();
+        //test.test4_isWayBlocked();
+       // test.test5_carpet();
        
     }
 

@@ -4,13 +4,31 @@
  */
 public class Jeroo extends JerooBase {
 
-
+public void turnAround(){
+  turn(LEFT);
+  turn(LEFT);
+}
     /**
      * when called, the Jeroo will finish facing east
      */
     public void faceEast()
     {
+    
+if(isFacing(EAST)){
+;
+}
 
+if(isFacing(WEST)){
+  turnAround();
+}
+
+if(isFacing(NORTH)){
+  turn(RIGHT);
+}
+
+if(isFacing(SOUTH)){
+  turn(LEFT);
+}
     }
 
     /**
@@ -21,7 +39,19 @@ public class Jeroo extends JerooBase {
      */
     public boolean isLeftBlocked()
     {
-        return false;
+      if(isWater(LEFT)){
+        return true;
+      }
+      turnAround();
+      hop();
+      else if(isWater(LEFT)){
+        return true;
+        turnAround();
+        hop();
+      }
+    else {
+      return false;
+    }
     }
 
     /**
