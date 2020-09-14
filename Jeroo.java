@@ -18,15 +18,15 @@ if(isFacing(EAST)){
 ;
 }
 
-if(isFacing(WEST)){
+else if(isFacing(WEST)){
   turnAround();
 }
 
-if(isFacing(NORTH)){
+else if(isFacing(NORTH)){
   turn(RIGHT);
 }
 
-if(isFacing(SOUTH)){
+else if(isFacing(SOUTH)){
   turn(LEFT);
 }
     }
@@ -42,14 +42,16 @@ if(isFacing(SOUTH)){
       if(isWater(LEFT)){
         return true;
       }
+      
+      else if(isWater(LEFT)){
+        turn(LEFT);
+        hop();
+        return true;
+      }
       turnAround();
       hop();
-      else if(isWater(LEFT)){
-        return true;
-        turnAround();
-        hop();
-      }
-    else {
+      turn(RIGHT);
+      else {
       return false;
     }
     }
@@ -63,7 +65,19 @@ if(isFacing(SOUTH)){
      */
     public void findNextDirection()
     {
-
+    hop();
+    if(isFlower(HERE)){
+      pick();
+      hop();
+        if(isFlower(HERE)){
+          turnAround();
+          hop();
+          hop();
+        } else {
+        
+        }
+        }
+    }
     }
 
     /**

@@ -20,10 +20,10 @@ public class Main implements Directions {
     public static void runJerooCode() {
        TestMain test = new TestMain();
         test.setup();
-        test.test1_faceEast();
-       // test.test2_isLeftBlocked();
-        //test.test3_findNextDirection();
-        //test.test4_isWayBlocked();
+       test.test1_faceEast();
+        test.test2_isLeftBlocked();
+       test.test3_findNextDirection();
+       // test.test4_isWayBlocked();
        // test.test5_carpet();
        
     }
