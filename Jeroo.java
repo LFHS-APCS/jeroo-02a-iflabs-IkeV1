@@ -29,6 +29,9 @@ else if(isFacing(NORTH)){
 else if(isFacing(SOUTH)){
   turn(LEFT);
 }
+else
+;
+    }
     }
 
     /**
@@ -37,24 +40,30 @@ else if(isFacing(SOUTH)){
      * IMPORTANT:  Make sure the Jeroo is in its original spot and 
      *             facing its original direction when it finishes.
      */
-    public boolean isLeftBlocked()
+
+    
+
+  public boolean isLeftBlocked()
     {
-      if(isWater(LEFT)){
-        return true;
-      }
-      
-      else if(isWater(LEFT)){
+        if (isWater(LEFT)){
+            return true;
         turn(LEFT);
         hop();
-        return true;
-      }
-      turnAround();
-      hop();
-      turn(RIGHT);
-      else {
-      return false;
+        }
+        if (isWater(AHEAD)) {
+            turnAround();
+            hop();
+            turn(LEFT);
+            return true;
+        } else {
+            turnAround();
+            hop();
+            turn(LEFT);
+            return false;
+        }
+
     }
-    }
+
 
     /**
      * Assume that a Jeroo has either 0, 1 or 2 flowers in front of it. 
@@ -65,19 +74,26 @@ else if(isFacing(SOUTH)){
      */
     public void findNextDirection()
     {
+    if(isFlower(AHEAD)){
     hop();
-    if(isFlower(HERE)){
-      pick();
-      hop();
-        if(isFlower(HERE)){
-          turnAround();
-          hop();
-          hop();
-        } else {
-        
-        }
-        }
+    pick();
+      if(isFlower(AHEAD)){
+        hop();
+        pick();
+        turnAround();
+        hop();
+        hop();
+        turn(LEFT);
+      }
+    else{
+    turnAround();
+    hop();
+    turn(LEFT);
     }
+    else{
+      turn(LEFT);
+    }
+   
     }
 
     /**
@@ -90,7 +106,7 @@ else if(isFacing(SOUTH)){
      */
     public boolean isWayBlocked()
     {
-        return false;
+      
     }
 
 
